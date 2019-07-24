@@ -6,8 +6,11 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 const session = require('express-session');
 const passport = require('passport');
+<<<<<<< HEAD
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
+=======
+>>>>>>> refs/remotes/origin/master
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -38,14 +41,18 @@ const userSchema = new mongoose.Schema({
 
 // Uses to hash and salt user passport
 userSchema.plugin(passportLocalMongoose);
+<<<<<<< HEAD
 // use the function of findOrCreate
 userSchema.plugin(findOrCreate);
+=======
+>>>>>>> refs/remotes/origin/master
 
 const User = mongoose.model('User', userSchema);
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+<<<<<<< HEAD
 
 passport.use(
   new GoogleStrategy(
@@ -62,6 +69,8 @@ passport.use(
     }
   )
 );
+=======
+>>>>>>> refs/remotes/origin/master
 
 app.get('/', (req, res) => {
   res.render('home');
